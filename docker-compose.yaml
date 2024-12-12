@@ -1,0 +1,15 @@
+services:
+  go-otp:
+    build:
+      dockerfile: .docker/go/Dockerfile
+      context: .
+    container_name: go-otp
+    ports:
+      - '50051:50051'
+    volumes:
+      - .:/golang-otp
+    networks:
+      - golang-otp
+networks:
+  golang-otp:
+    driver: bridge
