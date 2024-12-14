@@ -1,0 +1,53 @@
+linters:
+  enable:
+    - govet
+    - errcheck
+    - staticcheck
+    - gofmt
+    - goimports
+    - gocyclo
+    - golint
+    - ineffassign
+    - deadcode
+    - unused
+    - structcheck
+    - varcheck
+    - misspell
+    - dupl
+    - unconvert
+    - nakedret
+    - prealloc
+    - scopelint
+    - goconst
+    - gocritic
+
+run:
+  timeout: 5m
+
+issues:
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - errcheck
+  max-issues-per-linter: 0
+  max-same-issues: 0
+  exclude-use-default: false
+
+linters-settings:
+  gocyclo:
+    min-complexity: 10
+  dupl:
+    threshold: 100
+  misspell:
+    locale: US
+  prealloc:
+    simple: true
+  scopelint:
+    checks:
+      - shadow
+  goconst:
+    min-len: 3
+    min-occurrences: 2
+  gocritic:
+    enabled-checks:
+      - ruleguard
